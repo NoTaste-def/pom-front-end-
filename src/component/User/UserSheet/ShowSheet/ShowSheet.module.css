@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.Navbar {
+  display: flex;
+  background: black;
+  width: 100%;
+  color: white;
+  padding: 20px;
+}
+
+.ModifyBtn {
+  border-radius: 10px;
+
+  margin: 10px;
+  margin-left: 130px;
+}
+
+.ShowResume {
+  display: flex;
+  justify-content: center;
+  grid-template-columns: 60px auto;
+  gap: 20px;
+
+  box-sizing: border-box;
+
+  padding: 20px;
+  padding-bottom: 5px;
+
+  border: 1px solid grey;
+  border-radius: 10px;
+
+  margin-left: 10px;
+}
+
+.ShowEdu {
+  display: grid;
+  grid-template-columns: 60px auto;
+  gap: 20px;
+
+  padding: 20px;
+  padding-bottom: 5px;
+
+  border: 1px solid grey;
+  border-radius: 10px;
+
+  margin: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.ShowHis {
+  display: grid;
+  grid-template-columns: 60px auto;
+  gap: 20px;
+
+  width: 30%;
+
+  padding: 20px;
+  padding-bottom: 5px;
+
+  border: 1px solid grey;
+  border-radius: 10px;
+
+  margin: 10px;
+  margin-left: 50px;
+}
+
+.ShowTech {
+  grid-template-columns: 60px auto;
+  gap: 30px;
+
+  display: flex;
+  padding: 20px;
+  padding-bottom: 5px;
+
+  width: 35%;
+  border-radius: 10px;
+  border: 1px solid grey;
+  margin: 10px;
+  margin-left: 50px;
+}
+
+.ShowVoca {
+  display: flex;
+  grid-template-columns: 60px auto;
+  gap: 30px;
+
+  width: 35%;
+
+  padding: 20px;
+  padding-bottom: 5px;
+
+  border-radius: 10px;
+  border: 1px solid grey;
+
+  margin: 10px;
+  margin-left: 50px;
+}
+
+.ShowAward {
+  display: flex;
+  grid-template-columns: 60px auto;
+  gap: 30px;
+
+  width: 35%;
+
+  padding: 20px;
+  padding-bottom: 5px;
+
+  border-radius: 10px;
+  border: 1px solid grey;
+
+  margin: 10px;
+  margin-left: 50px;
+}

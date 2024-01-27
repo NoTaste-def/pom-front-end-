@@ -1,0 +1,87 @@
+.Navbar {
+  display: flex;
+  background: black;
+  width: 100%;
+  color: white;
+  padding: 20px;
+}
+
+/*/ /////////////////// Set User Sheet . js ////////////////////*/
+/* Edu 컴포넌트 관련 */
+
+div {
+  box-sizing: border-box;
+}
+
+/* His 컴포넌트 관련 */
+.His {
+  margin: 10px;
+}
+
+.HistoryInputContainer {
+  border: 1px solid grey;
+  padding: 20px;
+}
+
+.DateInput {
+  margin: 10px;
+}
+.CompanyNameInput {
+  margin: 10px;
+}
+.DetailInput {
+  margin: 10px;
+}
+
+.deleteHisBtn {
+  border-radius: 10px;
+}
+
+/* Tech 컴포넌트 관련 */
+.Tech {
+  margin: 10px;
+}
+
+.TechInputContainer {
+  border: 1px solid grey;
+  padding: 20px;
+}
+
+.CertName {
+  margin: 10px;
+}
+.GotDay {
+  margin: 10px;
+}
+.Issuer {
+  margin: 10px;
+}
+.CertYN {
+  margin: 10px;
+}
+
+.deleteTechBtn {
+  border-radius: 10px;
+}
+
+/* Lang 컴포넌트 관련 */
+.Lang {
+  margin: 10px;
+}
+.LangInputContainer {
+  padding: 20px;
+  border: 1px solid grey;
+}
+.LangCertName {
+  margin: 10px;
+}
+.LangCertScore {
+  margin: 10px;
+}
+.LangCertDate {
+  margin: 10px;
+}
+
+.deleteLangBtn {
+  border-radius: 10px;
+}
