@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Nav from "react-bootstrap/Nav";
+
+import img from "../../../../test.jpg";
 
 import styles from "./SetUserSheet.module.css";
 import Army from "./Army";
@@ -10,42 +11,122 @@ import Tech from "./Tech";
 import Lang from "./Lang";
 
 const SetUserSheet = () => {
-  const pageName = "입력하셈.";
-  const [history, setHistory] = useState([{}]); // 경력 정보 관리할 객체
+  const [his, setHis] = useState([{}]); // 경력 정보 관리할 객체
   const [tech, setTech] = useState([{}]); // 기술자격증 정보 관리할 객체
   const [lang, setLang] = useState([{}]); // 어학자격증 정보 관리할 객체
+  const [fade, setFade] = useState();
+
+  const [armyStat, setArmyStat] = useState(false);
+  const [eduStat, setEduStat] = useState(false);
+  const [hisStat, setHisStat] = useState(false);
+  const [techStat, setTechStat] = useState(false);
+  const [langStat, setLangStat] = useState(false);
+
+  // 병역 모달창 관리
+  const openArmy = () => {
+    setArmyStat(true);
+  };
+  const closeArmy = () => {
+    setArmyStat(false);
+  };
+
+  // 학력 모달창 관리
+  const openEdu = () => {
+    setEduStat(true);
+  };
+  const closeEdu = () => {
+    setEduStat(false);
+  };
+
+  // 경력 모달창 관리
+  const openHis = () => {
+    setHisStat(true);
+  };
+  const closeHis = () => {
+    setHisStat(false);
+  };
+
+  // 기술 모달창 관리
+  const openTech = () => {
+    setTechStat(true);
+  };
+  const closeTech = () => {
+    setTechStat(false);
+  };
+
+  // 언어 모달창 관리
+  const openLang = () => {
+    setLangStat(true);
+  };
+  const closeLang = () => {
+    setLangStat(false);
+  };
+  //
+
+  useEffect(() => {
+    let a = setTimeout(() => {
+      setFade(styles.end);
+    }, 0);
+    return () => {
+      clearTimeout(a);
+      setFade();
+    };
+  }, []);
 
   return (
-    <div>
+    <div className={`setContainer ${styles.start} ${fade}`}>
       <div className={styles.Navbar}>
-        <h4>{pageName}</h4>
+        <h4>이력서 작성</h4>
       </div>
-      <div className={styles.InputContainer}>
-        <form onSubmit={handleFormSubmit}>
-          <div>
-            <h3>병역여부</h3>
-            <Army />
-          </div>
-          <div>
-            <h3>학력을 선택해 주세요.</h3>
-            <Edu />
-          </div>
-          <div>
-            <h3>경력을 입력해 주세요.</h3>
-            <His history={history} setHistory={setHistory} />
-          </div>
-          <div>
-            <h3>기술 자격증을 기재해 주세요.</h3>
-            <Tech tech={tech} setTech={setTech} />
-          </div>
-          <div>
-            <h3>어학 자격증을 기재해 주세요.</h3>
-            <Lang lang={lang} setLang={setLang} />
-          </div>
-        </form>
-        <Link to={"/"}>
-          <button>제출하기</button>
-        </Link>
+      <div className={styles.defaultStatusFlex}>
+        <img
+          alt="증명사진"
+          src={img}
+          style={({ height: "132px" }, { width: "103px" })}
+        />
+        <ul>
+          <li>이름 : 김영권</li>
+          <li>이메일 : 1234@1234</li>
+          <li>전화번호 : 1234</li>
+        </ul>
+      </div>
+
+      <div className={styles.firstContainer}>
+        <div>
+          <button onClick={openArmy}>병역</button>
+          <Army isOpen={armyStat} onClose={closeArmy} />
+        </div>
+        <div>
+          <button onClick={openEdu}>학력</button>
+          <Edu isOpen={eduStat} onClose={closeEdu} />
+        </div>
+        <div>
+          <button onClick={openHis}>경력</button>
+          <His isOpen={hisStat} onClose={closeHis} his={his} setHis={setHis} />
+        </div>
+        <div>
+          <button onClick={openTech}>기술</button>
+          <Tech
+            isOpen={techStat}
+            onClose={closeTech}
+            tech={tech}
+            setTech={setTech}
+          />
+        </div>
+        <div>
+          <button onClick={openLang}>어학</button>
+          <Lang
+            isOpen={langStat}
+            onClose={closeLang}
+            lang={lang}
+            setLang={setLang}
+          />
+        </div>
+        <div className={styles.footerContainer}>
+          <Link to={"/"}>
+            <button>제출하기</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

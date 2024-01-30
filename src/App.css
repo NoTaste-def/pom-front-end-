@@ -1,0 +1,12 @@
+.Logo {
+  background-color: white;
+  padding: 10px;
+  /* border-bottom: 4mm ridge lightgrey; */
+  border-bottom: 8px double rgb(62, 62, 62);
+}
+
+.LogoImg {
+  width: 70px;
+  transform: rotate(-6deg);
+  margin-left: 8px;
+}

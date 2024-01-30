@@ -1,0 +1,24 @@
+.Wrap {
+  padding-top: 30px;
+  width: 100vh;
+}
+.inputFormat {
+  background-color: lightgrey;
+}
+
+/* sx={{
+  "  .ql-editor": {
+    padding: "30px",
+    boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)",
+    margin: "2px",
+    width: "100%",
+    maxHeight: "75vh",
+    minHeight: "75vh",
+    backgroundColor: "white",
+  },
+  "  .ql-container.ql-snow": {
+    border: "none",
+    display: "flex",
+    justifyContent: "center",
+  },
+}} */

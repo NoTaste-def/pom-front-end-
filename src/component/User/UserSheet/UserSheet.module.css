@@ -1,8 +1,40 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
 /*//////////////////// User Sheet . js ////////////////////*/
+.Main {
+  display: flex;
+  /* flex-wrap: wrap;
+  flex-direction: column; */
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.guideAlert {
+  position: fixed;
+  font-weight: 500;
+}
+
 .goSheetBtn {
-  position: absolute;
+  /* 위치잡기 */
+  position: fixed;
+  margin-top: 100px;
+  /* 아래는 디자인 */
+  display: inline-block;
+  border: none;
   border-radius: 10px;
-  margin-right: 100px;
   padding: 5px;
-  background: grey;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: rgb(42, 104, 251);
+  color: white;
+}
+
+.start {
+  opacity: 0;
+}
+.end {
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }

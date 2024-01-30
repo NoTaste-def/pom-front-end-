@@ -1,19 +1,17 @@
 import react from "react";
 import { useState } from "react";
+import styles from "./UserRecruit.module.css";
+import UserPage from "./UserPage.js";
+import CompanyPage from "./CompanyPage.js";
 
-import "../../../App.css";
 const UserRecruit = () => {
-  const [userInfo, setUserInfo] = useState([]);
+  const [isUser, setIsUser] = useState(true);
 
   return (
     <div>
-      <header>
-        <div className="Nav">
-          <h4 className="PageName">유저 채용공고</h4>
-        </div>
-      </header>
+      <header></header>
       <nav></nav>
-      <main></main>
+      <main>{isUser ? <UserPage /> : <CompanyPage />}</main>
       <footer></footer>
     </div>
   );

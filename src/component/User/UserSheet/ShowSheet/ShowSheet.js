@@ -6,35 +6,47 @@ import axios from "axios";
 
 const ShowSheet = () => {
   const LOAD = "Loading...";
+  const [fade, setFade] = useState("");
+  const [user, setUser] = useState();
+
   const dispatch = useDispatch();
   const dummyResume = useSelector((state) => {
     return state.dummy;
   });
 
-  const [user, setUser] = useState();
-
   useEffect(() => {
-    axios
-      .get(`http://211.216.233.66:5000/api/resume`, {
-        params: {
-          userId: "김영권",
-        },
-      })
-      .then((res) => {
-        setUser(res.data);
-      })
-      .catch(() => {
-        alert("Server Disconnected");
-      });
+    let a = setTimeout(() => {
+      setFade(styles.end);
+    }, 0);
+    return () => {
+      clearTimeout(a);
+      setFade();
+    };
   }, []);
 
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://211.216.233.66:5000/api/resume`, {
+  //       params: {
+  //         userId: "김영권",
+  //       },
+  //     })
+  //     .then((res) => {
+  //       setUser(res.data);
+  //     })
+  //     .catch(() => {
+  //       alert("Server Disconnected");
+  //     });
+  // }, []);
+
   return (
-    <div>
+    <div className={`${styles.start} ${fade}`}>
       <div className={styles.Navbar}>
-        <h3>보셈.</h3>
+        <h3>이력서</h3>
       </div>
       <div className={styles.ShowResume}>
         <h3>병역</h3>
+        <span></span>
         <div>
           <h6>여부 : {user ? user.army_yn : LOAD}</h6>
           <h6>복무기간 : {user ? user.army_period : LOAD}</h6>

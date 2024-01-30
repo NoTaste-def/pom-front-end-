@@ -1,0 +1,90 @@
+.viewContainer {
+  display: grid;
+  grid-template-areas:
+    "l pad r"
+    "l header r"
+    "l nav r"
+    "l m r"
+    "footer footer footer";
+}
+.pad {
+  grid-area: pad;
+  text-align: center;
+  min-height: 100px;
+}
+
+/*///////////////////////// HEADER /////////////////////////*/
+.header {
+  grid-area: header;
+  text-align: center;
+  min-height: 100px;
+}
+
+/*/ //////////////////////// NAV /////////////////////////*/
+.nav {
+  grid-area: nav;
+  text-align: center;
+  min-height: 80px;
+  width: 800px;
+  margin: 0 auto;
+
+  font-size: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.seperator {
+  margin: 5px;
+}
+
+.toCompany {
+  text-decoration: none;
+  color: black;
+}
+
+.modifyBtn,
+.deleteBtn {
+  background-color: white;
+  border: none;
+  color: grey;
+}
+.modifyBtn:hover,
+.deleteBtn:hover {
+  color: black;
+}
+
+/*///////////////////////// LEFT SIDE /////////////////////////*/
+.asideL {
+  grid-area: l;
+  text-align: center;
+  min-width: 0px;
+  max-width: 50px;
+}
+
+/*/ //////////////////////// RIGHT SIDE /////////////////////////*/
+.asideR {
+  grid-area: r;
+  text-align: center;
+  min-width: 0px;
+  max-width: 50px;
+}
+
+/*///////////////////////// MAIN /////////////////////////*/
+.main {
+  grid-area: m;
+  text-align: center;
+  min-height: 1000px;
+  min-width: 800px;
+  width: 500px;
+  margin: 0 auto;
+  display: fixed;
+  background-color: rgba(233, 233, 233, 0.278);
+}
+
+/*/ //////////////////////// FOOTER /////////////////////////*/
+.footer {
+  grid-area: footer;
+  text-align: center;
+}
