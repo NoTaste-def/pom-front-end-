@@ -91,21 +91,29 @@ const SetUserSheet = () => {
         </ul>
       </div>
 
-      <div className={styles.firstContainer}>
+      <div className={styles.mainContainer}>
         <div>
-          <button onClick={openArmy}>병역</button>
+          <button className={styles.armyBtn} onClick={openArmy}>
+            병역
+          </button>
           <Army isOpen={armyStat} onClose={closeArmy} />
         </div>
         <div>
-          <button onClick={openEdu}>학력</button>
+          <button className={styles.eduBtn} onClick={openEdu}>
+            학력
+          </button>
           <Edu isOpen={eduStat} onClose={closeEdu} />
         </div>
         <div>
-          <button onClick={openHis}>경력</button>
+          <button className={styles.hisBtn} onClick={openHis}>
+            경력
+          </button>
           <His isOpen={hisStat} onClose={closeHis} his={his} setHis={setHis} />
         </div>
         <div>
-          <button onClick={openTech}>기술</button>
+          <button className={styles.techBtn} onClick={openTech}>
+            기술
+          </button>
           <Tech
             isOpen={techStat}
             onClose={closeTech}
@@ -114,7 +122,9 @@ const SetUserSheet = () => {
           />
         </div>
         <div>
-          <button onClick={openLang}>어학</button>
+          <button className={styles.langBtn} onClick={openLang}>
+            어학
+          </button>
           <Lang
             isOpen={langStat}
             onClose={closeLang}
@@ -122,11 +132,9 @@ const SetUserSheet = () => {
             setLang={setLang}
           />
         </div>
-        <div className={styles.footerContainer}>
-          <Link to={"/"}>
-            <button>제출하기</button>
-          </Link>
-        </div>
+      </div>
+      <div className={styles.footerContainer}>
+        <button className={styles.submitBtn}>제출하기</button>
       </div>
     </div>
   );

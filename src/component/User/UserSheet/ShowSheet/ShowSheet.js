@@ -42,7 +42,7 @@ const ShowSheet = () => {
   return (
     <div className={`${styles.start} ${fade}`}>
       <div className={styles.Navbar}>
-        <h3>이력서</h3>
+        <h1>이력서</h1>
       </div>
       <div className={styles.ShowResume}>
         <h3>병역</h3>

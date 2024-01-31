@@ -52,7 +52,10 @@ const Edu = ({ isOpen, onClose }) => {
             </div>
           </ul>
         </div>
-        <div className={styles.modalFooter}>제출, 취소 버튼이 위치합니다.</div>
+        <div className={styles.modalFooter}>
+          <button>제출</button>
+          <button>취소</button>
+        </div>
       </div>
     </div>
   );

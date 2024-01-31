@@ -1,9 +1,11 @@
 .Navbar {
   display: flex;
-  background: lightgrey;
+  justify-content: center;
+  background: white;
   width: 100%;
   color: black;
-  padding: 20px;
+  padding: 50px;
+  padding-top: 100px;
 }
 
 .start {
@@ -13,7 +15,7 @@
   opacity: 1;
   transition: opacity 0.5s ease;
 }
-/*/ /////////////////// Modal . js ////////////////////*/
+/*/ /////////////////// Modal 공통 클래스 ////////////////////*/
 
 .backdrop{
   position: fixed;
@@ -25,6 +27,8 @@
 }
 
 .testModal{
+  display: grid;
+  place-items: center;
   position: fixed;
   top: 40%;
   left: 50%;
@@ -32,11 +36,22 @@
   background: white;
   padding: 20px;
   max-height: 80%;
+  min-width: 800px;
+  min-height: 500px;
   overflow-y: auto;
   z-index: 1000;
 }
+
+.modalMain{
+  padding: 100px;
+}
 /*/ /////////////////// Set User Sheet . js ////////////////////*/
-.firstContainer button {
+.armyBtn,
+.eduBtn,
+.hisBtn,
+.techBtn,
+.langBtn,
+.submitBtn {
   border: none;
   padding: 0px;
   padding-left: 10px;
@@ -50,12 +65,19 @@
 /* Edu 컴포넌트 관련 */
 .defaultStatusFlex {
   display: flex;
+  justify-content: center;
+  gap: 100px;
 }
 
-.firstContainer {
+.mainContainer {
   display: grid;
-  min-height: 100vh;
   place-items: center;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 20px;
+  min-height: 50vh;
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: center;
 }
