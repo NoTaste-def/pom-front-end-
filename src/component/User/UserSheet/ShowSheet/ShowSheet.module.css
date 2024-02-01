@@ -1,4 +1,65 @@
-* {
+.Container {
+  display: grid;
+  grid-template-areas:
+    "head head head"
+    "army army army"
+    "edu edu edu"
+    "his his his"
+    "tech tech tech"
+    "voca voca voca"
+    "award award award"
+    "footer1 footer footer";
+  place-content: center;
+  text-align: center;
+}
+
+.Container div {
+  margin-bottom: 20px;
+}
+
+.awardContainer {
+  grid-area: award;
+  border-bottom: 5px ridge;
+  border-radius: 5px;
+}
+
+.vocaContainer {
+  grid-area: voca;
+  border-bottom: 5px ridge;
+  border-radius: 5px;
+}
+
+.techContainer {
+  grid-area: tech;
+  border-bottom: 5px ridge;
+  border-radius: 5px;
+}
+
+.hisContainer {
+  grid-area: his;
+  border-bottom: 5px ridge;
+  border-radius: 5px;
+}
+
+.eduContainer {
+  grid-area: edu;
+  border-bottom: 5px ridge;
+  border-radius: 5px;
+}
+
+.armyContainer {
+  grid-area: army;
+  border-bottom: 5px ridge;
+  border-radius: 5px;
+}
+
+.Navbar {
+  grid-area: head;
+  background: white;
+  width: 100%;
+  color: black;
+  padding: 50px;
+  padding-top: 80px;
 }
 
 .start {
@@ -9,37 +70,13 @@
   transition: opacity 0.5s ease;
 }
 
-.Navbar {
-  display: flex;
-  justify-content: center;
-  background: white;
-  width: 100%;
-  color: black;
-  padding: 50px;
-  padding-top: 80px;
-}
-
 .ModifyBtn {
+  grid-area: footer;
   border-radius: 10px;
-
+  background-color: white;
   margin: 10px;
   margin-left: 130px;
 }
-
-.ShowResume {
-}
-
-.ShowEdu {
-}
-
-.ShowHis {
-}
-
-.ShowTech {
-}
-
-.ShowVoca {
-}
-
-.ShowAward {
+.tmp {
+  grid-area: footer1;
 }

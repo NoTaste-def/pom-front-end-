@@ -3,6 +3,8 @@ import styles from "./ViewPost.module.css";
 import { Link } from "react-router-dom";
 
 const ViewPost = () => {
+  const markdown = "# Hi, *Pluto*!";
+
   return (
     <div className={styles.viewContainer}>
       <div className={styles.pad}></div>
@@ -11,7 +13,7 @@ const ViewPost = () => {
       </header>
       <nav className={styles.nav}>
         <div className={styles.navLeft}>
-          <Link className={styles.toCompany} href="/기업페이지">
+          <Link className={styles.toCompany} to="/company">
             <strong>아무튼 대기업</strong>
           </Link>
           <span className={styles.seperator}>·</span>
@@ -23,7 +25,7 @@ const ViewPost = () => {
         </div>
       </nav>
       <aside className={styles.asideL}></aside>
-      <main className={styles.main}>게시글 본문 내용이 들어감</main>
+      <main className={styles.main}></main>
       <aside className={styles.asideR}></aside>
       <footer className={styles.footer}>
         다음글, 관심있어할 내용 등등이 위치할 수 있음
