@@ -9,59 +9,38 @@ import Edu from "./Edu";
 import His from "./His";
 import Tech from "./Tech";
 import Lang from "./Lang";
+import Award from "./Award";
+import dayjs from "dayjs";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { useDispatch, useSelector } from "react-redux";
+
+import {
+  addHis,
+  deleteHis,
+  setEndHis,
+  setStartHis,
+} from "../../../../store.js";
 
 const SetUserSheet = () => {
-  const [his, setHis] = useState([{}]); // 경력 정보 관리할 객체
-  const [tech, setTech] = useState([{}]); // 기술자격증 정보 관리할 객체
-  const [lang, setLang] = useState([{}]); // 어학자격증 정보 관리할 객체
+  let dispatch = useDispatch();
+
+  let user = useSelector((state) => {
+    return state.usersheet;
+  });
+
+  let SetPeriodParameter = (i, day) => {
+    return [i, day];
+  };
+
   const [fade, setFade] = useState();
 
-  const [armyStat, setArmyStat] = useState(false);
-  const [eduStat, setEduStat] = useState(false);
-  const [hisStat, setHisStat] = useState(false);
-  const [techStat, setTechStat] = useState(false);
-  const [langStat, setLangStat] = useState(false);
-
-  // 병역 모달창 관리
-  const openArmy = () => {
-    setArmyStat(true);
+  const datePickerFormat = "YYYY-MM-DD";
+  const datePickerUtils = {
+    format: datePickerFormat,
+    parse: (value) => dayjs(value, datePickerFormat, true).toDate(),
+    // You can add other utils as needed, such as `isValid`, etc.
   };
-  const closeArmy = () => {
-    setArmyStat(false);
-  };
-
-  // 학력 모달창 관리
-  const openEdu = () => {
-    setEduStat(true);
-  };
-  const closeEdu = () => {
-    setEduStat(false);
-  };
-
-  // 경력 모달창 관리
-  const openHis = () => {
-    setHisStat(true);
-  };
-  const closeHis = () => {
-    setHisStat(false);
-  };
-
-  // 기술 모달창 관리
-  const openTech = () => {
-    setTechStat(true);
-  };
-  const closeTech = () => {
-    setTechStat(false);
-  };
-
-  // 언어 모달창 관리
-  const openLang = () => {
-    setLangStat(true);
-  };
-  const closeLang = () => {
-    setLangStat(false);
-  };
-  //
 
   useEffect(() => {
     let a = setTimeout(() => {
@@ -74,74 +53,126 @@ const SetUserSheet = () => {
   }, []);
 
   return (
-    <div className={`setContainer ${styles.start} ${fade}`}>
-      <div className={styles.Navbar}>
-        <h4>이력서 작성</h4>
-      </div>
-      <div className={styles.defaultStatusFlex}>
-        <img
-          alt="증명사진"
-          src={img}
-          style={({ height: "132px" }, { width: "103px" })}
-        />
-        <ul>
-          <li>이름 : 김영권</li>
-          <li>이메일 : 1234@1234</li>
-          <li>전화번호 : 1234</li>
-        </ul>
-      </div>
+    <div className={`setResumeWrap ${styles.start} ${fade}`}>
+      <div className={styles.resumeCon}>
+        <form className={styles.flexResume}>
+          <section className={styles.defaultStatusFlex}>
+            <img
+              alt="증명사진"
+              src={img}
+              style={({ height: "132px" }, { width: "103px" })}
+            />
+            <ul className={styles.userinfo}>
+              <li>이름 : 김영권</li>
+              <li>이메일 : 1234@1234</li>
+              <li>전화번호 : 1234</li>
+            </ul>
+          </section>
 
-      <div className={styles.mainContainer}>
-        <div>
-          <button className={styles.armyBtn} onClick={openArmy}>
-            병역
-          </button>
-          <Army isOpen={armyStat} onClose={closeArmy} />
-        </div>
-        <div>
-          <button className={styles.eduBtn} onClick={openEdu}>
-            학력
-          </button>
-          <Edu isOpen={eduStat} onClose={closeEdu} />
-        </div>
-        <div>
-          <button className={styles.hisBtn} onClick={openHis}>
-            경력
-          </button>
-          <His isOpen={hisStat} onClose={closeHis} his={his} setHis={setHis} />
-        </div>
-        <div>
-          <button className={styles.techBtn} onClick={openTech}>
-            기술
-          </button>
-          <Tech
-            isOpen={techStat}
-            onClose={closeTech}
-            tech={tech}
-            setTech={setTech}
-          />
-        </div>
-        <div>
-          <button className={styles.langBtn} onClick={openLang}>
-            어학
-          </button>
-          <Lang
-            isOpen={langStat}
-            onClose={closeLang}
-            lang={lang}
-            setLang={setLang}
-          />
-        </div>
-      </div>
-      <div className={styles.footerContainer}>
-        <button className={styles.submitBtn}>제출하기</button>
+          <section className={styles.army}>
+            <Army />
+          </section>
+          <section>학력</section>
+          <section>
+            {user.history.map(function (a, i) {
+              return (
+                <div className={styles.HistoryInputContainer} key={i}>
+                  <LocalizationProvider
+                    required
+                    dateAdapter={AdapterDayjs}
+                    dateFormats={datePickerUtils}
+                  >
+                    <DatePicker
+                      label="입사일"
+                      value={user.history_start_period}
+                      format="YYYY / MM / DD"
+                      onChange={(newVal) => {
+                        const day = `${newVal.$y}-${String(
+                          newVal.$M + 1
+                        ).padStart(2, "0")}-${String(newVal.$D).padStart(
+                          2,
+                          "0"
+                        )}`;
+
+                        // let copy = JSON.parse(JSON.stringify(user.history));
+                        // copy[i].history_start_period = day;
+                        // dispatch(setStartHis(copy));
+                        // console.log(i, copy);
+                        dispatch(setStartHis(SetPeriodParameter(i, day)));
+                      }}
+                    />
+                    <DatePicker
+                      label="퇴사일"
+                      value={user.history_end_period}
+                      format="YYYY / MM / DD"
+                      onChange={(newVal) => {
+                        const day = `${newVal.$y}-${String(
+                          newVal.$M + 1
+                        ).padStart(2, "0")}-${String(newVal.$D).padStart(
+                          2,
+                          "0"
+                        )}`;
+                        dispatch(setEndHis(SetPeriodParameter(i, day)));
+                        console.log(user.history);
+                      }}
+                    />
+                  </LocalizationProvider>
+                  <input
+                    required
+                    className={styles.CompanyName}
+                    placeholder={"회사명*"}
+                  />
+                  <input
+                    required
+                    className={styles.Detail}
+                    placeholder={"직급/직책*"}
+                  />
+                  <input
+                    required
+                    className={styles.Detail}
+                    placeholder={"근무부서*"}
+                  />
+                  <br />
+                  <button
+                    type="button"
+                    className={styles.deleteHisBtn}
+                    onClick={() => {
+                      dispatch(deleteHis(user.history.id));
+                    }}
+                  >
+                    X
+                  </button>
+                </div>
+              );
+            })}
+            <button
+              type="button"
+              onClick={() => {
+                dispatch(
+                  addHis({
+                    history_start_period: "",
+                    history_end_period: "",
+                    history_company: "",
+                    history_position: "",
+                    history_department: "",
+                  })
+                );
+              }}
+            >
+              추가하기
+            </button>
+          </section>
+          <section>자격/어학</section>
+          <section>수상</section>
+          <div className={styles.footerContainer}>
+            <button type="submit" className={styles.submitBtn}>
+              제출하기
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
-};
-
-const handleFormSubmit = (event) => {
-  event.preventDefault();
 };
 
 export default SetUserSheet;

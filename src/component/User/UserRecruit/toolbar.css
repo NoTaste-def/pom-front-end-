@@ -1,0 +1,34 @@
+.md-editor-toolbar {
+  gap: 10px;
+  background: transparent;
+  border: none;
+}
+.md-editor {
+  background: transparent;
+  border: none;
+}
+
+.cm-gutterElement {
+  color: transparent;
+}
+
+.cm-scroller {
+  border: none;
+}
+
+.cm-content {
+  background: white;
+  border: none;
+}
+
+.cm-gutters {
+  border: none;
+}
+.cm-gutter {
+  background: white;
+  border: none;
+}
+
+.wmde-markdown {
+  color: white;
+}

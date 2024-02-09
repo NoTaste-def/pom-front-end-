@@ -1,82 +1,98 @@
 .Container {
-  display: grid;
-  grid-template-areas:
-    "head head head"
-    "army army army"
-    "edu edu edu"
-    "his his his"
-    "tech tech tech"
-    "voca voca voca"
-    "award award award"
-    "footer1 footer footer";
-  place-content: center;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
-.Container div {
-  margin-bottom: 20px;
+.NavContainer {
+  top: 30%;
+  height: 200px;
+  border-radius: 10px;
+  padding: 15px;
+  left: 5%;
+  background: transparent;
+  color: grey;
+
+  position: fixed;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.Contents {
+  margin-left: 200px;
+  width: 800px;
+}
+@media screen and (max-width: 1000px) {
+  .Contents {
+    width: 400px;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .Contents {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+}
+.showContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+.underbar {
+  border-bottom: 2px solid grey;
+}
+
+/* 맨 아래 버튼들 */
+.footerContainer {
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+}
+
+/* 카테고리 */
 .awardContainer {
-  grid-area: award;
-  border-bottom: 5px ridge;
-  border-radius: 5px;
+}
+.awardElement {
+  padding: 20px;
 }
 
-.vocaContainer {
-  grid-area: voca;
-  border-bottom: 5px ridge;
-  border-radius: 5px;
+.langContainer {
+}
+.langElement {
+  padding: 20px;
 }
 
 .techContainer {
-  grid-area: tech;
-  border-bottom: 5px ridge;
-  border-radius: 5px;
+}
+.techElement {
+  padding: 20px;
 }
 
 .hisContainer {
-  grid-area: his;
-  border-bottom: 5px ridge;
-  border-radius: 5px;
+}
+.hisElement {
+  padding: 20px;
 }
 
 .eduContainer {
-  grid-area: edu;
-  border-bottom: 5px ridge;
-  border-radius: 5px;
+}
+.eduElement {
+  padding: 20px;
 }
 
 .armyContainer {
-  grid-area: army;
-  border-bottom: 5px ridge;
-  border-radius: 5px;
+}
+.armyElement {
+  padding: 20px;
 }
 
-.Navbar {
-  grid-area: head;
-  background: white;
-  width: 100%;
-  color: black;
-  padding: 50px;
-  padding-top: 80px;
-}
-
+/* 애니메이션 */
 .start {
   opacity: 0;
 }
 .end {
   opacity: 1;
   transition: opacity 0.5s ease;
-}
-
-.ModifyBtn {
-  grid-area: footer;
-  border-radius: 10px;
-  background-color: white;
-  margin: 10px;
-  margin-left: 130px;
-}
-.tmp {
-  grid-area: footer1;
 }

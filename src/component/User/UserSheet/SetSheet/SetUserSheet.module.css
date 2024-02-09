@@ -1,13 +1,3 @@
-.Navbar {
-  display: flex;
-  justify-content: center;
-  background: white;
-  width: 100%;
-  color: black;
-  padding: 50px;
-  padding-top: 100px;
-}
-
 .start {
   opacity: 0;
 }
@@ -15,42 +5,15 @@
   opacity: 1;
   transition: opacity 0.5s ease;
 }
-/*/ /////////////////// Modal 공통 클래스 ////////////////////*/
 
-.backdrop{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
+.hide_reason {
+  display: none;
+}
+.hide_army_form {
+  display: none;
 }
 
-.testModal{
-  display: grid;
-  place-items: center;
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  max-height: 80%;
-  min-width: 800px;
-  min-height: 500px;
-  overflow-y: auto;
-  z-index: 1000;
-}
-
-.modalMain{
-  padding: 100px;
-}
 /*/ /////////////////// Set User Sheet . js ////////////////////*/
-.armyBtn,
-.eduBtn,
-.hisBtn,
-.techBtn,
-.langBtn,
 .submitBtn {
   border: none;
   padding: 0px;
@@ -62,22 +25,24 @@
   font-size: 2rem;
 }
 
-/* Edu 컴포넌트 관련 */
-.defaultStatusFlex {
+.flexResume{
   display: flex;
-  justify-content: center;
-  gap: 100px;
+  flex-direction: column;
+  gap: 20px;
 }
-
-.mainContainer {
-  display: grid;
-  place-items: center;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 20px;
-  min-height: 50vh;
+.flexResume section{
+  border-bottom: 5px solid black;
+  padding: 20px;
 }
+/* SetUserSheet 컴포넌트 관련 */
 
 .footerContainer {
   display: flex;
   justify-content: center;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

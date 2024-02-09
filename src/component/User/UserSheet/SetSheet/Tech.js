@@ -12,26 +12,24 @@ const Tech = ({ isOpen, onClose, tech, setTech }) => {
           {tech.map(function (a, i) {
             return (
               <div className={styles.TechInputContainer} key={i}>
-                <div className={styles.CertName}>
-                  <span>자격증/기술 : </span>
-                  <input placeholder="자격증/기술 공식 이름"></input>
-                </div>
-                <div className={styles.GotDay}>
-                  <span>취득년월 : </span>
-                  <input type="date"></input>
-                </div>
-                <div className={styles.Issuer}>
-                  <span>발급처 : </span>
-                  <input placeholder="발급 기관 공식 이름"></input>
-                </div>
-                <div className={styles.CertYN}>
-                  <span>인증여부 : </span>
-                  <select className={styles.SelectYN}>
-                    <option id="No">No</option>
-                    <option id="Yes">Yes</option>
-                  </select>
-                </div>
-
+                <input placeholder="자격증명*"></input>
+                <input placeholder="발행처/기관"></input>
+                <br />
+                <select className={styles.SelectYN}>
+                  <option id="No">No</option>
+                  <option id="Yes">Yes</option>
+                </select>
+                <br />
+                <select>
+                  <option>합격구분*</option>
+                  <option>1차합격</option>
+                  <option>2차합격</option>
+                  <option>필기합격</option>
+                  <option>실기합격</option>
+                  <option>최종합격</option>
+                </select>
+                <input type="date"></input>
+                <br />
                 <button
                   className="deleteTechBtn"
                   onClick={(e) => {

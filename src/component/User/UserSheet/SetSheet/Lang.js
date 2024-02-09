@@ -12,18 +12,23 @@ const Lang = ({ isOpen, onClose, lang, setLang }) => {
           {lang.map((a, i) => {
             return (
               <div key={i} className={styles.LangInputContainer}>
-                <div className={styles.LangCertName}>
-                  <span>자격증 이름 : </span>
-                  <input placeholder="자격증 이름 기재"></input>
-                </div>
-                <div className={styles.LangCertScore}>
-                  <span>자격증 점수 : </span>
-                  <input type="number" placeholder="자격증 점수 기재"></input>
-                </div>
-                <div className={styles.LangCertDate}>
-                  <span>자격증 취득 날짜 : </span>
-                  <input type="date"></input>
-                </div>
+                <select>
+                  <option>영어</option>
+                  <option>일본어</option>
+                  <option>중국어</option>
+                  <option>독일어</option>
+                  <option>불어</option>
+                  <option>스페인어</option>
+                  <option>이탈리아어</option>
+                  <option>한국어</option>
+                  <option>러시아어</option>
+                </select>
+                <input placeholder="언어시험명 입력"></input>
+                <input type="date"></input>
+                <br />
+                <input placeholder="급수"></input>
+                <input type="number" placeholder="점수"></input>
+                <br />
                 <button
                   className={styles.deleteLangBtn}
                   onClick={(e) => {

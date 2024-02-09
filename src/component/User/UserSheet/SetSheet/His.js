@@ -12,27 +12,14 @@ const His = ({ isOpen, onClose, his, setHis }) => {
           {his.map(function (a, i) {
             return (
               <div className={styles.HistoryInputContainer} key={i}>
-                <div className={styles.DateInput}>
-                  <span>기간 : </span>
-                  <input type="date" className={styles.StartPeriod} />
-                  <span>{" ~ "}</span>
-                  <input type="date" className={styles.EndPeriod}></input>
-                </div>
-                <div className={styles.CompanyNameInput}>
-                  <span>회사명 : </span>
-                  <input
-                    className={styles.CompanyName}
-                    placeholder={"회사명 입력란"}
-                  />
-                </div>
-                <div className={styles.DetailInput}>
-                  <span>직책/업무내용 : </span>
-                  <input
-                    className={styles.Detail}
-                    placeholder={"직책/업무내용과 관련된 세부 사항 기재"}
-                  />
-                </div>
-
+                <input type="date" className={styles.StartPeriod} />
+                <span>{" ~ "}</span>
+                <input type="date" className={styles.EndPeriod}></input>
+                <br />
+                <input className={styles.CompanyName} placeholder={"회사명*"} />
+                <input className={styles.Detail} placeholder={"직급/직책"} />
+                <input className={styles.Detail} placeholder={"근무부서"} />
+                <br />
                 <button
                   className={styles.deleteHisBtn}
                   onClick={(e) => {

@@ -14,7 +14,6 @@ import staticExit from "../../../Icons/static-exit.png";
 import deleteIcon from "../../../Icons/delete.gif";
 import staticDelete from "../../../Icons/static-delete.png";
 
-import "./toolbar.css";
 // https://velog.io/@hskwon517/React-Quill-%EC%97%90%EB%94%94%ED%84%B0-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
 // 나중에 이미지, 태그 서버로 보낼때 참고.
 
@@ -355,7 +354,7 @@ const WritePost = () => {
             <MarkdownEditor
               autoFocus={true}
               value={input}
-              height={"70vh"}
+              height={"79vh"}
               onChange={setInput}
               toolbars={[
                 title1,
